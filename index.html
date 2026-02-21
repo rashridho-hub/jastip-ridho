@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jastip Ridho</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, #0f1b2d, #08101c);
+  color: white;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.hero {
+  background: linear-gradient(135deg,#ffd400,#f7b500);
+  color: black;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background:#2d3a4f;
+  padding:25px;
+  border-radius:20px;
+  margin-bottom:30px;
+}
+
+h2 {
+  color:#ffd400;
+}
+
+input, select, textarea {
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border:none;
+}
+
+button {
+  background:#ffd400;
+  border:none;
+  padding:15px;
+  width:100%;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover {
+  opacity:0.9;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+
+th, td {
+  padding:10px;
+  border:1px solid #3e4d66;
+  text-align:center;
+}
+
+th {
+  background:#1d2738;
+  color:#ffd400;
+}
+  
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="hero">
+<h1>🛵 JASTIP UNSOED by RIDHO </h1>
+<p>Jasa Titip Area UNSOED dan Sekitarnya</p>
+
+
+<div class="card">
+<h2>Form Pemesanan</h2>
+
+<input type="text" id="nama" placeholder="Nama Lengkap">
+<input type="text" id="wa" placeholder="Nomor WhatsApp">
+<select id="jenis">
+
+<input type="text" id="alamat1" placeholder="Alamat Pengambilan">
+<input type="text" id="alamat2" placeholder="Alamat Tujuan">
+<input type="number" id="jarak" placeholder="Jarak (km)" oninput="hitungTarif()">
+
+<div id="tarifBox">
+<b>Tarif: Rp<span id="tarif">0</span></b>
+</div>
+
+<select id="metode">
+<option>-- Metode Pembayaran --</option>
+<option>Cash</option>
+<option>Transfer</option>
+<option>QRIS</option>
+</select>
+
+<textarea id="detail" placeholder="Detail Pesanan"></textarea>
+<textarea id="catatan" placeholder="Catatan Tambahan"></textarea>
+
+<button onclick="kirimWA()">Kirim Pesanan via WhatsApp</button>
+</div>
+
+<div class="card">
+<h2>Pricelist Layanan</h2>
+<p>Tarif Awal ≤ 0.5 km = Rp5.000</p>
+<p>+Rp1.000 setiap 0.5 km</p>
+
+<table>
+<tr><th>Jarak (km)</th><th>Tarif</th></tr>
+<tr><td>0.6 - 1.0</td><td>Rp5.000</td></tr>
+<tr><td>1.1 - 1.5</td><td>Rp6.000</td></tr>
+<tr><td>1.6 - 2.0</td><td>Rp7.000</td></tr>
+<tr><td>2.1 - 2.5</td><td>Rp8.000</td></tr>
+<tr><td>2.6 - 3.0</td><td>Rp9.000</td></tr>
+</table>
+</div>
+
+
+<script>
+function hitungTarif(){
+let jarak = parseFloat(document.getElementById("jarak").value);
+if(!jarak || jarak <= 0.5){
+document.getElementById("tarif").innerText = 5000;
+return;
+}
+let tambahan = Math.ceil((jarak-0.5)/0.5)*1000;
+let total = 5000 + tambahan;
+document.getElementById("tarif").innerText = total;
+}
+
+function kirimWA(){
+let nama = document.getElementById("nama").value;
+let wa = document.getElementById("wa").value;
+let jenis = document.getElementById("jenis").value;
+let alamat1 = document.getElementById("alamat1").value;
+let alamat2 = document.getElementById("alamat2").value;
+let jarak = document.getElementById("jarak").value;
+let tarif = document.getElementById("tarif").innerText;
+let metode = document.getElementById("metode").value;
+let detail = document.getElementById("detail").value;
+let catatan = document.getElementById("catatan").value;
+
+let pesan = `Halo, saya ingin order:
+
+Nama: ${nama}
+No WA: ${wa}
+Jenis: ${jenis}
+Alamat Jemput: ${alamat1}
+Alamat Tujuan: ${alamat2}
+Jarak: ${jarak} km
+Tarif: Rp${tarif}
+Metode: ${metode}
+Detail: ${detail}
+Catatan: ${catatan}`;
+
+window.open(`https://wa.me/628XXXXXXXXXX?text=${encodeURIComponent(pesan)}`);
+}
+</script>
+
+</body>
+</html>
