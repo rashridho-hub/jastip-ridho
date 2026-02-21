@@ -102,7 +102,7 @@ th {
 <div class="hero">
 <h1>🛵 JASTIP UNSOED by RIDHO </h1>
 <p>Jasa Titip Area UNSOED dan Sekitarnya</p>
-
+</div>
 <div class="card">
 <h2>Form Pemesanan</h2>
 
@@ -148,11 +148,13 @@ th {
 <script>
 function hitungTarif(){
 let jarak = parseFloat(document.getElementById("jarak").value);
-if(!jarak || jarak <= 0.5){
-document.getElementById("tarif").innerText = 5000;
-return;
+
+if(!jarak || jarak <= 1){
+  document.getElementById("tarif").innerText = 5000;
+  return;
 }
-let tambahan = Math.ceil((jarak-0.5)/0.5)*1000;
+
+let tambahan = Math.ceil((jarak-1)/0.5)*1000;
 let total = 5000 + tambahan;
 document.getElementById("tarif").innerText = total;
 }
@@ -160,7 +162,6 @@ document.getElementById("tarif").innerText = total;
 function kirimWA(){
 let nama = document.getElementById("nama").value;
 let wa = document.getElementById("wa").value;
-let jenis = document.getElementById("jenis").value;
 let alamat1 = document.getElementById("alamat1").value;
 let alamat2 = document.getElementById("alamat2").value;
 let jarak = document.getElementById("jarak").value;
@@ -173,7 +174,6 @@ let pesan = `Halo, saya ingin order:
 
 Nama: ${nama}
 No WA: ${wa}
-Jenis: ${jenis}
 Alamat Jemput: ${alamat1}
 Alamat Tujuan: ${alamat2}
 Jarak: ${jarak} km
