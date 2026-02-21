@@ -9,8 +9,8 @@
 body {
   margin:0;
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle, #0f1b2d, #08101c);
-  color: white;
+  background: linear-gradient(135deg, #eaf4ff, #cfe9ff);
+  color: #1e3a5f;
 }
 
 .container {
@@ -21,23 +21,25 @@ body {
 }
 
 .hero {
-  background: linear-gradient(135deg,#ffd400,#f7b500);
-  color: black;
+  background: linear-gradient(135deg,#1e90ff,#007bff);
+  color: white;
   text-align: center;
   padding: 40px 20px;
   border-radius: 20px;
   margin-bottom: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .card {
-  background:#2d3a4f;
+  background:white;
   padding:25px;
   border-radius:20px;
   margin-bottom:30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 h2 {
-  color:#ffd400;
+  color:#007bff;
 }
 
 input, select, textarea {
@@ -46,42 +48,53 @@ input, select, textarea {
   margin-top:8px;
   margin-bottom:15px;
   border-radius:10px;
-  border:none;
+  border:1px solid #cfe0f5;
+  background:#f8fbff;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline:none;
+  border:1px solid #007bff;
+  background:white;
 }
 
 button {
-  background:#ffd400;
+  background: linear-gradient(135deg,#1e90ff,#007bff);
+  color:white;
   border:none;
   padding:15px;
   width:100%;
   border-radius:30px;
   font-weight:bold;
   cursor:pointer;
+  transition:0.3s;
 }
 
 button:hover {
-  opacity:0.9;
+  transform:scale(1.03);
+  box-shadow:0 5px 15px rgba(0,123,255,0.3);
 }
 
 table {
   width:100%;
   border-collapse:collapse;
   margin-top:15px;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
 }
 
 th, td {
   padding:10px;
-  border:1px solid #3e4d66;
+  border:1px solid #e0ecff;
   text-align:center;
 }
 
 th {
-  background:#1d2738;
-  color:#ffd400;
+  background:#007bff;
+  color:white;
 }
-  
 </style>
-</head>
 
 <body>
 <div class="container">
@@ -89,7 +102,6 @@ th {
 <div class="hero">
 <h1>🛵 JASTIP UNSOED by RIDHO </h1>
 <p>Jasa Titip Area UNSOED dan Sekitarnya</p>
-
 
 <div class="card">
 <h2>Form Pemesanan</h2>
@@ -172,7 +184,7 @@ Metode: ${metode}
 Detail: ${detail}
 Catatan: ${catatan}`;
 
-window.open(`https://wa.me/628XXXXXXXXXX?text=${encodeURIComponent(pesan)}`);
+window.open(`https://wa.me/62895806329087?text=${encodeURIComponent(pesan)}`);
 }
 </script>
 
