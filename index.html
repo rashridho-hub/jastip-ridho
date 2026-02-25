@@ -52,36 +52,10 @@ body {
   border-radius: 20px;
   margin-bottom: 30px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
- <div class="motor">🛵</div>
-}
- .hero h1 {
-  text-shadow: 0 0 10px rgba(255,255,255,0.7);
-}
- .card:hover {
-  transform: translateY(-5px);
-  transition: 0.3s;
-}
-#tarifBox {
-  background: rgba(255,255,255,0.2);
-  padding: 15px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-.motor {
-  position: absolute;
-  font-size: 24px;
-  animation: jalan 6s linear infinite;
 }
 
-@keyframes jalan {
-  from { left: -50px; }
-  to { left: 100%; }
-}
 .card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  background:blue;
   padding:25px;
   border-radius:20px;
   margin-bottom:30px;
@@ -266,7 +240,7 @@ function createSnowflake() {
   }, 15000);
 }
 
-setInterval(createSnowflake, 700);
+setInterval(createSnowflake, 500);
 </script>
 </body>
 </html>
