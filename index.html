@@ -154,8 +154,9 @@ if(!jarak || jarak <= 0.5){
   return;
 }
 
-let tambahan = Math.ceil((jarak-1)/0.5)*1500;
-let total = 5000 + tambahan;
+let tambahan = Math.ceil((jarak - 0.5) / 1) * 1500;
+let total = 4000 + tambahan;
+
 document.getElementById("tarif").innerText = total;
 }
 
