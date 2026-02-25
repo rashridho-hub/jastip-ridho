@@ -149,17 +149,29 @@ th {
 function hitungTarif(){
 let jarak = parseFloat(document.getElementById("jarak").value);
 
-if(!jarak || jarak <= 0.5){
+if(!jarak){
+  document.getElementById("tarif").innerText = 0;
+  return;
+}
+
+// Tarif awal khusus
+if(jarak <= 0.5){
   document.getElementById("tarif").innerText = 4000;
   return;
 }
 
-let tambahan = Math.ceil((jarak - 0.5) / 1) * 1500;
-let total = 4000 + tambahan;
+// 0.6 - 1.0 km tetap 5000
+if(jarak <= 1.0){
+  document.getElementById("tarif").innerText = 5000;
+  return;
+}
+
+// Setelah 1 km, tambah 1500 tiap 1 km
+let tambahanKm = Math.ceil(jarak - 1);
+let total = 5000 + (tambahanKm * 1500);
 
 document.getElementById("tarif").innerText = total;
 }
-
 function kirimWA(){
 let nama = document.getElementById("nama").value;
 let wa = document.getElementById("wa").value;
