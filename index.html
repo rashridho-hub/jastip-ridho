@@ -132,15 +132,15 @@ th {
 <div class="card">
 <h2>Pricelist Layanan</h2>
 <p>Tarif Awal ≤ 0.5 km = Rp4.000</p>
-<p>+Rp1.000 setiap 0.5 km</p>
+<p>+Rp1.500 setiap 1 km</p>
 
 <table>
 <tr><th>Jarak (km)</th><th>Tarif</th></tr>
 <tr><td>0.6 - 1.0</td><td>Rp5.000</td></tr>
-<tr><td>1.1 - 1.5</td><td>Rp6.000</td></tr>
-<tr><td>1.6 - 2.0</td><td>Rp7.000</td></tr>
-<tr><td>2.1 - 2.5</td><td>Rp8.000</td></tr>
-<tr><td>2.6 - 3.0</td><td>Rp9.000</td></tr>
+<tr><td>1.1 - 2.0</td><td>Rp6.000</td></tr>
+<tr><td>2.1 - 3.0</td><td>Rp7.000</td></tr>
+<tr><td>3.1 - 4.0</td><td>Rp8.000</td></tr>
+<tr><td>4.1 - 5.0</td><td>Rp9.000</td></tr>
 </table>
 </div>
 
@@ -149,12 +149,12 @@ th {
 function hitungTarif(){
 let jarak = parseFloat(document.getElementById("jarak").value);
 
-if(!jarak || jarak <= 1){
-  document.getElementById("tarif").innerText = 5000;
+if(!jarak || jarak <= 0.5){
+  document.getElementById("tarif").innerText = 4000;
   return;
 }
 
-let tambahan = Math.ceil((jarak-1)/0.5)*1000;
+let tambahan = Math.ceil((jarak-1)/0.5)*1500;
 let total = 5000 + tambahan;
 document.getElementById("tarif").innerText = total;
 }
