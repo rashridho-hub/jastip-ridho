@@ -17,9 +17,9 @@ body {
 }
 .snowflake {
   position: fixed;
-  top: -10px;
+  top: -50px;
   color: white;
-  font-size: 10px;
+  font-size: 24px; /* diperbesar */
   user-select: none;
   pointer-events: none;
   animation: fall linear infinite;
@@ -27,7 +27,7 @@ body {
 
 @keyframes fall {
   to {
-    transform: translateY(100vh);
+    transform: translateY(110vh);
   }
 }
 .container {
@@ -216,24 +216,31 @@ window.open(`https://wa.me/62895806329087?text=${encodeURIComponent(pesan)}`);
 }
 </script>
 <script>
+<script>
 function createSnowflake() {
   const snowflake = document.createElement("div");
   snowflake.classList.add("snowflake");
   snowflake.innerHTML = "❄";
 
   snowflake.style.left = Math.random() * window.innerWidth + "px";
-  snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s";
-  snowflake.style.opacity = Math.random();
-  snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+  
+  // Durasi lebih lama (lebih lambat)
+  snowflake.style.animationDuration = (Math.random() * 5 + 8) + "s";
+  
+  // Ukuran lebih besar
+  snowflake.style.fontSize = (Math.random() * 20 + 20) + "px";
+  
+  snowflake.style.opacity = Math.random() * 0.7 + 0.3;
 
   document.body.appendChild(snowflake);
 
   setTimeout(() => {
     snowflake.remove();
-  }, 5000);
+  }, 13000);
 }
 
-setInterval(createSnowflake, 200);
+// Interval lebih jarang biar ga terlalu ramai
+setInterval(createSnowflake, 400);
 </script>
 </body>
 </html>
