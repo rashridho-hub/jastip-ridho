@@ -17,20 +17,24 @@ body {
 }
 .snowflake {
   position: fixed;
-  top: -50px;
+  top: -20px;
   color: white;
-  font-size: 30px;
+  font-size: 12px; /* kecil lagi */
   pointer-events: none;
-  z-index: 9999; /* penting biar di atas semua */
+  z-index: 9999;
+  opacity: 0.8;
   animation: fall linear infinite;
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(-50px);
+    transform: translate(0px, -20px);
+  }
+  50% {
+    transform: translate(15px, 50vh);
   }
   100% {
-    transform: translateY(110vh);
+    transform: translate(-15px, 110vh);
   }
 }
 .container {
@@ -227,6 +231,7 @@ function createSnowflake() {
   snowflake.style.left = Math.random() * window.innerWidth + "px";
   snowflake.style.animationDuration = (Math.random() * 5 + 10) + "s";
   snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+  snowflake.style.fontSize = (Math.random() * 6 + 8) + "px";
 
   document.body.appendChild(snowflake);
 
